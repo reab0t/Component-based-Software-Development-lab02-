@@ -71,6 +71,28 @@ const events = ref<Event[]>([
 
    organizer: 'Carey Wales'
 
+ },
+
+ {
+
+ id: 1234567,
+
+   category: 'education',
+
+   title: 'Coding Workshop',
+
+   description: 'Learn the basics of web development in this hands-on workshop.',
+
+   location: 'Tech Hub',
+
+   date: 'September 15, 2022',
+
+   time: '14:00',
+
+   petsAllowed: false,
+
+   organizer: 'Code Master'
+
  }
 
 ])
