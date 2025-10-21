@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
 </template>
 
-<style scoped>
+<style >
 
  #layout{
    front-family:Avenir,Helvetica,Arial,sans-serif;
@@ -27,7 +27,9 @@ import { RouterLink, RouterView } from 'vue-router'
   text-align: center;
   color:#2c3e50;
 }
-
+ h2{
+   front-size:20px;
+ }
 nav{
   padding:30px;
 }
