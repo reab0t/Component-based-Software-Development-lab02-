@@ -77,6 +77,13 @@ const events = ref<Event[]>([
 </script>
 
 <template>
+
+  <h1>Events For Good</h1>
+  <h1>为善举而行动</h1>
+
+  <!-- new element -->
+  <!-- 新元素 -->
+
   <div class="events">
     <div v-for="event in events" :key="event.id" class="event-container">
       <EventCard :event="event" />
@@ -84,6 +91,8 @@ const events = ref<Event[]>([
     </div>
   </div>
 </template>
+
+
 
 <style scoped>
 
