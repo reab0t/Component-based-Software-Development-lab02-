@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import {storeToRefs} from "pinia";
+
+const store = useMessageStore()
+const {message} = storeToRefs(store)
+
 //import EventCard from './components/EventCard.vue'
 </script>
 
@@ -7,6 +13,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
     <div id="layout">
       <header>
+        <div id="flashMessage" v-if="message">
+          <h4>{{message}}</h4>
+        </div>
         <div class="wapper">
           <nav>
             <RouterLink :to="{ name: 'event-list-view' }">Event</RouterLink> |
@@ -24,14 +33,25 @@ import { RouterLink, RouterView } from 'vue-router'
 <style >
 
  #layout{
-   front-family:Avenir,Helvetica,Arial,sans-serif;
+   font-family:Avenir,Helvetica,Arial,sans-serif;
    -webkit-font-sommthing: antialiased;
    -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color:#2c3e50;
 }
  h2{
-   front-size:20px;
+   font-size:20px;
+ }
+ @keyframes yellowfade {
+   from {
+     background-color: yellow;
+   }
+   to {
+     background-color: transparent;
+   }
+ }
+ #flashMessage{
+   animation:yellowfade 3s ease-in-out;
  }
 nav{
   padding:30px;

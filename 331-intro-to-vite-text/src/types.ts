@@ -11,3 +11,10 @@ export interface Event {
   organizer: string;
   组织者: string;
 }
+export interface Message{
+  message:string;
+}
+
+export interface MessageState {
+  message: string
+}

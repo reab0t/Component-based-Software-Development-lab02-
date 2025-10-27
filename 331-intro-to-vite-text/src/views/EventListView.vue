@@ -3,13 +3,13 @@ import EventCard from '@/components/EventCard.vue'
 import EventInfo from '@/components/EventInfo.vue'
 import { type Event } from '@/types'
 
-import { ref, onMounted, computed, defineProps, watchEffect } from 'vue'
+import { ref, onMounted, computed, watchEffect } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import EventService from '@/services/EventService'
 
 const router = useRouter()
 
-const updatePageSize = (event: Event) => {
+const updatePageSize = (event: globalThis.Event) => {
   const target = event.target as HTMLSelectElement
   const newSize = parseInt(target.value)
   // 重置到第一页并更新页面大小
@@ -22,7 +22,7 @@ const updatePageSize = (event: Event) => {
 // 初始化为空数组
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
-const hasNexPage = computed(() => {
+const hasNextPage = computed(() => {
   const totalPages = Math.ceil(totalEvents.value / pageSize.value)
   return page.value < totalPages
 })
@@ -93,7 +93,7 @@ onMounted(() => {
     
     <RouterLink 
       id="page-next"
-      v-if="hasNexPage" 
+      v-if="hasNextPage" 
       :to="{ name: 'event-list-view', query: { page: page + 1 } }" 
       rel="next"
     >

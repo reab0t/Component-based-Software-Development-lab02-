@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
 import { useRouter } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
 import { type Event } from '@/types'
 
 const props = defineProps<{
@@ -11,13 +12,18 @@ const { event } = toRefs(props)
 
 const router = useRouter()
 
-const register = () => {
-  // If the registration API call successful
-  // 如果注册 API 调用成功
+const store = useMessageStore()
 
-  // Push back to the event details view
-  // 返回到活动详情视图
-  router.push({ name: 'event-detail-view' })
+const register = () => {
+  store.updateMessage('You are successfully registered for ' + props.event.title)
+
+   setTimeout(() => {
+
+     store.resetMessage()
+
+     }, 3000)
+
+   router.push({ name: 'event-detail-view', params: { id: props.event.id } })
 }
 </script>
 
