@@ -7,6 +7,9 @@ import { ref, onMounted, computed, watchEffect } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import EventService from '@/services/EventService'
 
+import {useRoute} from "vue-router";
+
+
 const router = useRouter()
 
 const updatePageSize = (event: globalThis.Event) => {
@@ -55,7 +58,7 @@ onMounted(() => {
         console.error('There was an error!', error)
         console.error('出现错误了！', error)
       })
-  })
+    })
 })
 </script>
 
@@ -80,21 +83,21 @@ onMounted(() => {
       <EventInfo :event="event" />
     </div>
   </div>
-  
+
   <div class="pagination">
-    <RouterLink 
+    <RouterLink
       id="page-prev"
-      v-if="page != 1" 
-      :to="{ name: 'event-list-view', query: { page: page - 1 } }" 
+      v-if="page != 1"
+      :to="{ name: 'event-list-view', query: { page: page - 1 } }"
       rel="prev"
     >
       &#60; 上一页
     </RouterLink>
-    
-    <RouterLink 
+
+    <RouterLink
       id="page-next"
-      v-if="hasNextPage" 
-      :to="{ name: 'event-list-view', query: { page: page + 1 } }" 
+      v-if="hasNextPage"
+      :to="{ name: 'event-list-view', query: { page: page + 1 } }"
       rel="next"
     >
       下一页 &#62;
@@ -110,6 +113,9 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .event-container {
@@ -117,12 +123,14 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .pagination {
   display: flex;
   width: 290px;
   margin: 20px auto 0;
+  justify-content: center;
 }
 
 .pagination a {

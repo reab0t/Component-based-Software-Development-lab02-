@@ -25,8 +25,9 @@ const {message} = storeToRefs(store)
         </div>
       </header>
 
-
-      <RouterView />
+      <main class="main-content">
+        <RouterView />
+      </main>
     </div>
 </template>
 
@@ -34,11 +35,26 @@ const {message} = storeToRefs(store)
 
  #layout{
    font-family:Avenir,Helvetica,Arial,sans-serif;
-   -webkit-font-sommthing: antialiased;
+   -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color:#2c3e50;
+   text-align: center;
+   color:#2c3e50;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
 }
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
  h2{
    font-size:20px;
  }

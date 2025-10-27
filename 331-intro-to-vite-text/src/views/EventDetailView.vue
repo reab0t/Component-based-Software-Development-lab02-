@@ -24,7 +24,7 @@ onMounted(() => {
 
 <template>
 
-  <div v-if="event">
+  <div v-if="event" class="event-detail">
 
      <h1>{{ event.title }}</h1>
 
@@ -33,11 +33,25 @@ onMounted(() => {
 
      <p>{{ event.description }}</p>
 
-     </div>
-
+  </div>
 
 </template>
 
 <style scoped>
 
+:deep(.event-detail) {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+:deep(.event-detail h1) {
+  margin-bottom: 20px;
+}
+
+:deep(.event-detail p) {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
 </style>
