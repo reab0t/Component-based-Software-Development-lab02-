@@ -26,7 +26,7 @@ const updatePageSize = (event: globalThis.Event) => {
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / pageSize.value)
+  const totalPages = Math.ceil(totalEvents.value / 3)
   return page.value < totalPages
 })
 
@@ -45,8 +45,7 @@ const pageSize = computed(() => props.pageSize)
 
 onMounted(() => {
   watchEffect(() => {
-    events.value = null
-    EventService.getEvents(pageSize.value, page.value)
+    EventService.getEvents(3, page.value)
       .then((response) => {
         console.log(response.data)
         events.value = response.data
