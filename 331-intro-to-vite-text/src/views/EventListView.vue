@@ -67,9 +67,9 @@ onMounted(() => {
   <h1>为善举而行动</h1>
 
   <!-- 每页大小选择器 -->
-  <div class="page-size-selector">
+  <div class="text-center my-[10px]">
     <label>每页显示: </label>
-    <select @change="updatePageSize($event)">
+    <select @change="updatePageSize($event)" class="p-[5px] rounded border border-gray-300">
       <option value="2">2 条</option>
       <option value="3">3 条</option>
       <option value="5">5 条</option>
@@ -83,21 +83,21 @@ onMounted(() => {
     </div>
   </div>
 
-  <div class="pagination">
+  <div class="flex w-[290px] mx-auto justify-center mt-[20px]">
     <RouterLink
-      id="page-prev"
       v-if="page != 1"
       :to="{ name: 'event-list-view', query: { page: page - 1 } }"
       rel="prev"
+      class="flex-1 text-left text-gray-700 px-4 py-2 border border-gray-300 rounded transition-colors hover:bg-gray-100"
     >
       &#60; 上一页
     </RouterLink>
 
     <RouterLink
-      id="page-next"
       v-if="hasNextPage"
       :to="{ name: 'event-list-view', query: { page: page + 1 } }"
       rel="next"
+      class="flex-1 text-right text-gray-700 px-4 py-2 border border-gray-300 rounded transition-colors hover:bg-gray-100"
     >
       下一页 &#62;
     </RouterLink>
@@ -107,55 +107,6 @@ onMounted(() => {
 
 
 <style scoped>
-
-.pagination{
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.pagination {
-  display: flex;
-  width: 290px;
-  margin: 20px auto 0;
-  justify-content: center;
-}
-
-.pagination a {
-  flex: 1;
-  text-decoration: none;
-  color: #2c3e50;
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.pagination a:hover {
-  background-color: #f5f5f5;
-}
-
-#page-prev {
-  text-align: left;
-}
-
-#page-next {
-  text-align: right;
-}
-
-.page-size-selector {
-  text-align: center;
-  margin: 10px 0;
-}
-
-.page-size-selector select {
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
+/* 所有样式已转换为Tailwind CSS类 */
 </style>
 
