@@ -11,7 +11,7 @@ const props = defineProps({
   }
 })
 onMounted(() => {
-  EventService.getEvent(parseInt(props.id))
+  EventService.getEvent(props.id)
     .then((response) => {
       event.value = response.data
     })
