@@ -13,7 +13,7 @@ export default {
       },
       //this is animation class
       animation: {
-        fade: 'yellowFade 3s ease-in-out;',
+        fade: 'yellowFade 3s ease-in-out',
       },
       keyframes: {
         yellowFade: {
